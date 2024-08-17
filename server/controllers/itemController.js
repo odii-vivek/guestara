@@ -109,26 +109,8 @@ exports.getAllItems = async (req, res) => {
 exports.getItemsByCategory = async (req, res) => {
   try {
     const categoryId = req.params.categoryId;
-
-    // Find the category by its ID and populate its subcategories
-    const category = await Category.findById(categoryId).populate('subcategories');
-
-    // If the category is not found, return a 404 status code with an error message
-    if (!category) {
-      return res.status(404).json({ error: 'Category not found' });
-    }
-
-    // If there are subcategories, get the items from the first subcategory
-    if (category.subcategories && category.subcategories.length > 0) {
-      const subcategory = await SubCategory.findById(category.subcategories[0]._id).populate('items');
-      if (!subcategory) {
-        return res.status(404).json({ error: 'Subcategory not found' });
-      }
-      return res.json(subcategory.items);
-    }
-
-    // If no subcategories exist, return the items directly associated with the category
     const items = await Item.find({ category: categoryId });
+    if(!items) return res.json({message: `No Items found with the categoryId: ${categoryId}`})
     return res.json(items);
   } catch (err) {
     // If an error occurs during item retrieval, return a 500 status code with the error message
