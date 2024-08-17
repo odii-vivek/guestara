@@ -5,6 +5,7 @@ import SwiperCore from 'swiper';
 import 'swiper/css/bundle';
 import { Navigation } from 'swiper/modules';
 import { getItemById, getCategoryById, getSubCategoryById } from '../api/api'; // Import the methods from api.js
+import Loader from './Loader';
 
 SwiperCore.use([Navigation]);
 
@@ -45,7 +46,7 @@ const ItemDetails = () => {
 
   return (
     <main className="min-h-screen">
-      {loading && <p className='text-center my-7 text-2xl'>Loading...</p>}
+      {loading && <Loader />}
       {error && <p className='text-center my-7 text-2xl text-red-600'>{error}</p>}
       {itemDetails && !loading && !error && (
         <div className='max-w-5xl mx-auto p-6 my-10'>

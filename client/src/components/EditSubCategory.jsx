@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getSubCategoryById, updateSubCategory } from '../api/api'; // Adjust the import path as necessary
+import Loader from './Loader';
 
 export default function EditSubCategory() {
   const { subcategoryId } = useParams();
@@ -41,7 +42,7 @@ export default function EditSubCategory() {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (

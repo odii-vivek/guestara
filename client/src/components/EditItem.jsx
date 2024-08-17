@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getItemById, updateItem } from '../api/api'; // Adjust the import path as necessary
+import Loader from './Loader';
 
 export default function EditItem() {
   const { itemId } = useParams();
@@ -41,7 +42,7 @@ export default function EditItem() {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllCategories, getAllSubCategories, getAllItems } from '../api/api'; // Adjust the import path as necessary
+import Loader from './Loader';
 
 export default function HomePage() {
   const [categories, setCategories] = useState([]);
@@ -31,7 +32,7 @@ export default function HomePage() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
