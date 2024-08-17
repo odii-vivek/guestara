@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://guestara-thgj.onrender.com/'; // Adjust this URL according to your backend setup
+const API_URL = 'https://guestara-thgj.onrender.com'; // Adjust this URL according to your backend setup
 
 // Category APIs
 export const createCategory = async (category) => {
