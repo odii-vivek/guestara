@@ -9,29 +9,11 @@ This is a Node.js backend application for menu management. It allows you to crea
 
 ## Getting Started
 
-### 1. Clone the repository:
-
-git clone https://github.com/your-username/menu-management.git
-
-### 2. Install the dependencies:
-
-cd menu-management
-npm install
-
-### 3. Set up the environment variables:
-
-Create a `.env` file in the root directory and add the following variables:  
-MONGODB_URI=mongodb://localhost:27017/menu-management
-
-Replace the `MONGODB_URI` value with your MongoDB connection string.
-
-### 4. Start the application:
-
-The server will start running on `http://localhost:3000`.
+The application will run on `https://guestara-one.vercel.app/`, since it is already deployed .
 
 ## API Documentation
 
-You can find the API documentation in the `docs` directory or by visiting `http://localhost:3000/api-docs` after starting the server.
+You can find the API documentation by visiting `https://guestara-thgj.onrender.com/api-docs`, it is the server deployment for this project . All requests can be verified through postman onto the base url which is `https://guestara-thgj.onrender.com` . 
 
 ## Database
 
