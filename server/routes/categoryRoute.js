@@ -132,4 +132,6 @@ router.get('/:id', categoryController.getCategoryById);
 // UPDATE category
 router.put('/update/:id', categoryController.updateCategory);
 
+router.get('/name/:name', categoryController.getCategoryByName);
+
 module.exports = router;

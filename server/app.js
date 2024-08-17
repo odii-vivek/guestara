@@ -11,6 +11,14 @@ const morgan = require('morgan');
 const path = require('path');
 const rfs = require('rotating-file-stream');
 const mongoose = require("mongoose");
+const cors = require('cors')
+
+
+app.use(cors({origin: true}))
+app.use((req, res, next) => {
+    res.set("Access-Control-Allow-Origin", "*");
+    next();
+})
 
 // Import route handlers
 const categoryRoutes = require('./routes/categoryRoute');

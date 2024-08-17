@@ -99,6 +99,28 @@ exports.getSubCategoryById = async (req, res) => {
   }
 };
 
+exports.getSubCategoryByName = async (req, res) => {
+  try {
+    // Extract the name parameter from the request and ensure it's treated as a string
+    const subcategoryName = req.params.name;
+
+    // Find the subcategory by its name using the SubCategory model
+    const subcategory = await SubCategory.findOne({ name: subcategoryName });
+
+    // If the subcategory is not found, return a 404 (Not Found) status code with an error message
+    if (!subcategory) {
+      return res.status(404).json({ error: 'Subcategory not found' });
+    }
+
+    // Return the fetched subcategory as the response
+    res.json(subcategory);
+  } catch (err) {
+    // If an error occurs during subcategory retrieval, return a 500 (Internal Server Error) status code with the error message
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
 // UPDATE subcategory
 // This function updates an existing subcategory by its ID
 exports.updateSubCategory = async (req, res) => {

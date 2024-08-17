@@ -247,6 +247,6 @@ router.get('/:id', itemController.getItemById);
 // UPDATE item
 router.put('/update/:id', itemController.updateItem);
 
-router.get("/getByName/:name", itemController.getItemByName);
+router.get("/name/:name", itemController.getItemByName);
 
 module.exports = router;

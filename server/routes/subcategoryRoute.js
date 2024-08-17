@@ -174,5 +174,6 @@ router.get('/:id', subcategoryController.getSubCategoryById);
 
 // UPDATE subcategory
 router.put('/update/:id', subcategoryController.updateSubCategory);
+router.get('/name/:name', subcategoryController.getSubCategoryByName);
 
 module.exports = router;

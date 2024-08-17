@@ -56,6 +56,29 @@ exports.getCategoryById = async (req, res) => {
   }
 };
 
+exports.getCategoryByName = async (req, res) => {
+  try {
+    // Extract the name parameter from the request and ensure it's treated as a string
+    const categoryName = req.params.name;
+
+    // Find the category by its name using the Category model
+    const category = await Category.findOne({ name: categoryName });
+
+    // If the category is not found, return a 404 (Not Found) status code with an error message
+    if (!category) {
+      return res.status(404).json({ error: 'Category not found' });
+    }
+
+    // Return the fetched category as the response
+    res.json(category);
+  } catch (err) {
+    // If an error occurs during category retrieval, return a 500 (Internal Server Error) status code with the error message
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
+
 // UPDATE category
 // This function updates an existing category by its ID
 exports.updateCategory = async (req, res) => {
